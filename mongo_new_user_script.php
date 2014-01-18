@@ -1,12 +1,19 @@
 <?php
 
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 
-$connection = new MongoClient();
+$email = $_POST['emailaddress'];
+$name = $_POST['username'];
+$pass = $_POST['password'];
+$vname = $_POST['venmouser'];
+
+$connection = new Mongo("mongodb://127.0.0.1:27017");
 
 $doc = array(
-    "Username" => "example",
-    "Password" => "pass",
-    "Email" => "example@tcnj.edu",
+    "Username" => $name,
+    "Password" => $pass,
+    "Email" => $email,
     "Token" => "",
     "Profilepic" => "link",
     "AdminCommunities" => array(),
@@ -17,6 +24,5 @@ $collection = $connection->TheJar->Users;
 
 $collection->insert( $doc );
 
-
-
+echo ("ok");
 ?>

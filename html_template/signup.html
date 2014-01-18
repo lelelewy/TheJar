@@ -3,6 +3,27 @@
 	<head>
 		<title>Venmo Prompt</title>
 		<link rel="stylesheet" type="text/css" href="signup.css"></link>
+        <script type="text/javascript" src="https://s3.amazonaws.com/thejar.com/jquery-2.0.3.js"></script>
+ 		<script>
+
+ 		function getdetails(){
+ 	
+  		var email = $('#exampleInputEmail1').val();
+  		var name = $('#exampleInputUsername1').val();
+  		var pass = $('#exampleInputPassword1').val();
+  		var vname = $('#exampleInputVenmo1').val();
+
+  		$.ajax({
+  		type: "POST",
+  		url: 'mongo_new_user_script.php',
+  		data: {emailaddress:email, username:name, password:pass, venmouser:vname}
+  		}).done(function( result ) {
+  			alert(result);
+  		});
+       }
+ 
+ </script>
+
 	</head>
 
 	<body>
@@ -12,26 +33,26 @@
 			<form role="form">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Email address</label>
-			    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+			    <input type="email" class="form-control" name="exampleInputEmail1" id="exampleInputEmail1" placeholder="Enter email">
 			  </div>
 			  <h1 class="title2">Enter username</h1>
 			  <div class="form-group">
 			    <label for="exampleInputUsername1">Username</label>
-			    <input type="username" class="form-control" id="exampleInputUsername1" placeholder="Enter username">
+			    <input type="username" class="form-control" name="exampleInputUsername1" id="exampleInputUsername1" placeholder="Enter username">
 			  </div>
 			  <h1 class="title2">Enter password</h1>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">Password</label>
-			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			    <input type="password" class="form-control" name="exampleInputPassword1" id="exampleInputPassword1" placeholder="Password">
 			  </div>
 			  <h1 class="title2">Enter venmo username</h1>
 			  <div class="form-group">
 			    <label for="exampleInputVenmo1">Password</label>
-			    <input type="venmo" class="form-control" id="exampleInputVenmo1" placeholder="Venmo">
+			    <input type="venmo" class="form-control" name="exampleInputVenmo1" id="exampleInputVenmo1" placeholder="Venmo">
 			  </div>
 			</form>
-		      <form class="btn-group" action="login.php" method="POST" enctype="multipart/form-data">
-		      <input class="btn btn-primary" type="submit" name-"submit" label="click me">
+		      
+		      <input class="btn btn-primary" type="submit" name-"submit" label="click me" onClick = "getdetails()">
 		</center>
-	<body>
+	</body>
 </html>
