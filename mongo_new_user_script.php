@@ -8,6 +8,7 @@ $doc = array(
     "Password" => "pass",
     "Email" => "example@tcnj.edu",
     "Token" => "",
+    "Profilepic" => "link",
     "AdminCommunities" => array(),
     "GuestCommunities" => array()
 );
