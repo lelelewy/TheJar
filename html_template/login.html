@@ -3,6 +3,47 @@
   <head>
     <title>Venmo Prompt</title>
     <link rel="stylesheet" type="text/css" href="login.css"></link>
+    <script type="text/javascript" src="https://s3.amazonaws.com/thejar.com/jquery-2.0.3.js"></script>
+    <script>
+
+    function getdetails(){
+  
+     
+      var name = $('#exampleInputUsername1').val();
+      var pass = $('#exampleInputPassword1').val();
+
+      $.ajax({
+      type: "POST",
+      url: 'mongo_find_doc_script.php',
+      data: {username:name, password:pass}
+      }).done(function( result ) {
+
+        alert(result);
+        if(result==true) {
+
+        var str = document.URL;
+        var n = document.URL.indexOf("=");
+
+        setCookie("token", str.substring(n+1), 1);
+
+        function setCookie(name, value, days) { //set cookie value
+        var expireDate = new Date()
+        var expstring = expireDate.setDate(expireDate.getDate() + parseInt(days))
+        document.cookie = name + "=" + value + "; expires=" + expireDate.toGMTString() + "; path=/";
+    }
+
+          location.href="http://ec2-54-197-187-11.compute-1.amazonaws.com/home.html";
+        }
+        else {
+          location.href="http://ec2-54-197-187-11.compute-1.amazonaws.com/login.html";
+        }
+
+
+      });
+       }
+ 
+ </script>
+
   </head>
 
   <body>
@@ -19,8 +60,8 @@
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
       <form class="btn-group" action="login.php" method="POST" enctype="multipart/form-data">
-      <input class="btn btn-primary" type="submit" name-"submit" label="click me">
+      <input class="btn btn-primary" type="submit" name-"submit" label="click me" onClick = "getdetails()">
     </center>
     </form>
-  <body>
+  </body>
 </html>
