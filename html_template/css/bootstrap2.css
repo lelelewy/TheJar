@@ -856,8 +856,27 @@ pre code {
 .accusebt{
   background-color: red;
   color:black;
-  width:120px;
+  width:150px;
   height:40px;
+}
+
+.accusebt2, .accusebt3, .accusebt4{
+  background-color: red;
+  color:black;
+  width:150px;
+  height:40px;
+  border-top: 20px;
+}
+
+.icon{
+  float:right;
+  border-right:30px;
+}
+
+.icon2, .icon3, .icon4{
+ float: right;
+ border-right: 30px;
+ border-top: 20px;
 }
 
 .col-xs-1,
@@ -3384,13 +3403,16 @@ input[type="button"].btn-block {
   float:right;
   display: inline-block;
   vertical-align: middle;
-  padding-top: 400px;
-  width:130px;
+  padding-top: 450px;
+  width:220px;
+  padding-right: 70px;
+  margin-right: 50px;
 }
 
 .btn-group > .btn,
 .btn-group-vertical > .btn {
   float: right;
+  padding-right: 10px;
 }
 
 .btn-group > .btn:hover,
